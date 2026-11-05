@@ -15,6 +15,7 @@ public class NewBehaviourScript : MonoBehaviour
             player.ApplySlowdown(slowIntensity, slowDuration);
 
             Destroy(gameObject);
+
         }
         else if (other.CompareTag("Ground") || other.CompareTag("Obstacle"))
         {
