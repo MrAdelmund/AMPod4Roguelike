@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -88,6 +89,7 @@ public class PlayerStats : MonoBehaviour
         {
             moveSpeed = 0f;
             dead = true;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }

@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Boss
   - GameManager
+  - Weapon
+  - Ground
+  - Button
+  - EventSystem
+  - Light2D
   layers:
   - Default
   - TransparentFX
