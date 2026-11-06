@@ -506,11 +506,11 @@ GameObject:
   m_Component:
   - component: {fileID: 249567936}
   - component: {fileID: 249567935}
-  - component: {fileID: 249567937}
   - component: {fileID: 249567939}
   - component: {fileID: 249567938}
   - component: {fileID: 249567941}
   - component: {fileID: 249567942}
+  - component: {fileID: 249567943}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -549,35 +549,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &249567937
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 249567934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00eb00d266b16ee408be7b154e039232, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnRate: 1
-  spawnRadius: 10
-  tier1Enemies:
-  - {fileID: 11400000, guid: 5431cb2c6c3ec5e4998ebf189c34e76f, type: 2}
-  tier2Enemies:
-  - {fileID: 11400000, guid: 2aaa94a1deaaf4f4da6bdddeb1f73eb9, type: 2}
-  tier3Enemies:
-  - {fileID: 11400000, guid: 2aaa94a1deaaf4f4da6bdddeb1f73eb9, type: 2}
-  orkBossSO: {fileID: 11400000, guid: 84877dc7877bb35498dd9dfecbf674f1, type: 2}
-  orkBossSO_V2: {fileID: 11400000, guid: 3008cffd1cdeb0942ab33258b6821279, type: 2}
-  currentWave: 1
-  tier2StartWave: 3
-  tier3StartWave: 7
-  bossWaves: 0a00000014000000
-  player: {fileID: 1183110444}
-  spawnPos: {fileID: 1550878520}
-  boss: 0
 --- !u!114 &249567938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -657,6 +628,29 @@ MonoBehaviour:
   relicPool:
   - {fileID: 11400000, guid: bcd3e897590ed8e43966231aea95ea07, type: 2}
   - {fileID: 11400000, guid: 9478f652d47cb6a40a207d123c910fe3, type: 2}
+--- !u!114 &249567943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249567934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68741292d4265eb4797e5c1d655ba5ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnTimer: 0
+  Scaling: 0
+  WaveAmount: 0
+  WaveActive: 0
+  BasicEnemy: {fileID: 8971840052728973215, guid: 2981c5793a464524395d53c94db9cbba, type: 3}
+  NEnemy: 0
+  UEnemy: 0
+  EnemyStats: {fileID: 5734325046311758238, guid: 2981c5793a464524395d53c94db9cbba, type: 3}
+  SpriteList:
+  - {fileID: -444678978, guid: 8526afe48a93884428763aa116f4d972, type: 3}
+  - {fileID: 21300000, guid: 5758f3b0578cb0a4d8e4ef90b841d851, type: 3}
 --- !u!1 &326136217
 GameObject:
   m_ObjectHideFlags: 0
