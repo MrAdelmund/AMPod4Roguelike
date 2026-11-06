@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class SlowProjectile : MonoBehaviour
 {
     [SerializeField] private float slowIntensity = 0.5f;
     [SerializeField] private float slowDuration = 3.0f;
