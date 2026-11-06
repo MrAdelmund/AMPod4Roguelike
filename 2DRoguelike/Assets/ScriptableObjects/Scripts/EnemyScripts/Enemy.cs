@@ -69,8 +69,8 @@ public class Enemy : MonoBehaviour
     {
         if (player == null) return;
 
-        Vector2 direction = (player.transform.position - transform.position).normalized;
-        rb.MovePosition(rb.position + direction * data.moveSpeed * Time.fixedDeltaTime);
+        //Vector2 direction = (player.transform.position - transform.position).normalized;
+        //rb.MovePosition(rb.position + direction * data.moveSpeed * Time.fixedDeltaTime);
     }
 
     public void TakeDamage(float damage)
