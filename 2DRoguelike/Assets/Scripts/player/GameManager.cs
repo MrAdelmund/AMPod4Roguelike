@@ -6,7 +6,18 @@ public class GameManager : MonoBehaviour
     public PlayerStats playerStats;
     public WeaponController weaponController;
     public WeaponInventory playerInventory;
-
+    public static GameManager instance;
+  
+    void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
     void Start()
     {
         playerStats.Initialize(startingClass);

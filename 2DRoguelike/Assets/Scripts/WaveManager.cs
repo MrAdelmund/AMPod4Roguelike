@@ -1,7 +1,11 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WaveManager : MonoBehaviour
 {
+
     [Header("Wave Settings")]
     public float roundDuration = 30f;
     public int currentWave = 1;
@@ -10,46 +14,74 @@ public class WaveManager : MonoBehaviour
     public ShopManager shopManager;
 
     private float roundTimer;
-    private bool roundActive = true;
-
+    public int CooldownCORU = 10;
+    public bool roundActive = true;
+   
     private EnemySpawner spawner;
-
+    
     void Start()
     {
-        spawner = gameObject.GetComponent<EnemySpawner>();
+        if (SceneManager.GetActiveScene().name != "shop")
+        {
+            spawner = gameObject.GetComponent<EnemySpawner>();
+            Debug.Log("spawned");
+        }
+
     }
 
     void Update()
     {
-        if (!roundActive) return;
 
-        roundTimer += Time.deltaTime;
-
-        if (roundTimer >= roundDuration && !spawner.boss)
+        if (SceneManager.GetActiveScene().name != "shop" && roundActive)
         {
-            EndRound();
+
+            if (!roundActive) return;
+            roundTimer += Time.deltaTime;
+
+            if (roundTimer >= roundDuration && !spawner.boss)
+            {
+                EndRound();
+                Debug.Log("end round");
+                // Pause the game
+                //Time.timeScale = 0f;
+
+
+                //shopManager.OpenShop();
+            }
         }
     }
+
+
 
     public void EndRound()
     {
-        roundActive = false;
-        spawner.boss = false;
-
-        // Clear all remaining enemies
-        foreach (Enemy e in new System.Collections.Generic.List<Enemy>(Enemy.ActiveEnemies))
+        if (SceneManager.GetActiveScene().name != "shop")
         {
-            if (e != null)
-                Destroy(e.gameObject);
+            roundActive = false;
+            spawner.boss = false;
+
+            // Clear all remaining enemies
+            foreach (Enemy e in new System.Collections.Generic.List<Enemy>(Enemy.ActiveEnemies))
+            {
+                if (e != null)
+                    Destroy(e.gameObject);
+            }
+
+            StartCorutineCooldown();
         }
-
-        // Pause the game
-        Time.timeScale = 0f;
-
-        // Open the shop
-        shopManager.OpenShop();
     }
-
+    private void StartCorutineCooldown()
+    {
+        StartCoroutine(CooldownCoroutine());
+        Debug.Log("corutine start");
+    }
+    IEnumerator CooldownCoroutine()
+    {
+        roundActive = false;
+        yield return new WaitForSeconds(CooldownCORU);
+        roundActive = true;
+        currentWave++;
+    }
     public void OnShopClosed()
     {
         // Resume next round
@@ -57,4 +89,5 @@ public class WaveManager : MonoBehaviour
         roundActive = true;
         currentWave++;
     }
+   
 }

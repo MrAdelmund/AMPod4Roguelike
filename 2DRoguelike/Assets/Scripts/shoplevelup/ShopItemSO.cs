@@ -7,7 +7,7 @@ public class ShopItemSO : ScriptableObject
 {
     public string itemName;
     public ShopItemType type;
-    public int cost = 1;
+    public int cost = 10;
 
     [Header("Weapon (if type=Weapon)")]
     public WeaponSO weapon;
