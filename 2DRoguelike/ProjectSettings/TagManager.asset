@@ -11,6 +11,8 @@ TagManager:
   - Button
   - EventSystem
   - Light2D
+  - Obstacle
+  - Enemy
   layers:
   - Default
   - TransparentFX
