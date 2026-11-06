@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -40,7 +39,7 @@ public class EnemySpawner : MonoBehaviour
     {
         spawnTimer += Time.deltaTime;
 
-        if (spawnTimer >= 1f / spawnRate && !boss && SceneManager.GetActiveScene().name != "shop")
+        if (spawnTimer >= 1f / spawnRate && !boss)
         {
             SpawnEnemy();
             spawnTimer = 0f;
@@ -49,9 +48,8 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        
         EnemySO enemyData = GetEnemyForCurrentWave();
-       
+
         Vector2 spawnPosition =
             (Vector2)spawnPos.position +
             Random.insideUnitCircle.normalized * spawnRadius;
