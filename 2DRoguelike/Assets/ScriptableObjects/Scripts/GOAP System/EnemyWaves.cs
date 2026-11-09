@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class EnemyWaves : MonoBehaviour
 {
+    
     [Header("Wave Info")]
     public float SpawnTimer;
     public float Scaling;
@@ -19,7 +20,7 @@ public class EnemyWaves : MonoBehaviour
     public float UEnemy;
     [SerializeField] private ChaseScript EnemyStats;
     public Sprite[] SpriteList;
-
+    
     // Start is called before the first frame update
     void Start()
     {

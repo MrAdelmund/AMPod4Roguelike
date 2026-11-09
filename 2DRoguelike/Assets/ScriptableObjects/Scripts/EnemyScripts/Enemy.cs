@@ -22,11 +22,12 @@ public class Enemy : MonoBehaviour
     [HideInInspector] public GameObject GetPlayerObject() => player;
     [HideInInspector] public Rigidbody2D GetRigidbody() => rb;
     [HideInInspector] public EnemySO GetData() => data;
+    [SerializeField] private ChaseScript EnemyStats;
 
     public void Initialize(EnemySO enemyData, GameObject playerTransform)
     {
         data = enemyData;
-        currentHealth = data.maxHealth;
+        currentHealth = EnemyStats.maxHealth;
         player = playerTransform;
 
         GetComponent<SpriteRenderer>().sprite = data.sprite;
@@ -93,8 +94,8 @@ public class Enemy : MonoBehaviour
         // Drop Gold
         if (goldOrbPrefab != null)
             Instantiate(
-                goldOrbPrefab, 
-                (transform.position + new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0)), 
+                goldOrbPrefab,
+                (transform.position + new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0)),
                 Quaternion.identity);
 
         if (behavior != null)
@@ -120,3 +121,4 @@ public class Enemy : MonoBehaviour
         }
     }
 }
+
