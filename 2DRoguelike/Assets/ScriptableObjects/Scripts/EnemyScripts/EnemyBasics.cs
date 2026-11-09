@@ -27,21 +27,11 @@ public class EnemyBasics : MonoBehaviour
     {
         ActiveEnemies.Remove(this);
     }
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void TakeDamage(float damage)
     {
         currentHealth -= Proj.damage;
         if (currentHealth <= 0f)
-            Die();
+        Die();
     }
     void Die()
     {
