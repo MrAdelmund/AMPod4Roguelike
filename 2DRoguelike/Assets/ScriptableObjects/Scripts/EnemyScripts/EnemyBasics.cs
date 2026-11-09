@@ -11,6 +11,7 @@ public class EnemyBasics : MonoBehaviour
     public int goldValue = 1;
     private EnemyBehavior behavior;
     public GameObject goldOrbPrefab;
+    [SerializeField] Projectile Proj;
     [SerializeField] ChaseScript EnemyStats;
     [HideInInspector] public GameObject GetPlayerObject() => player;
     private GameObject player;
@@ -38,7 +39,7 @@ public class EnemyBasics : MonoBehaviour
     }
     public void TakeDamage(float damage)
     {
-        currentHealth -= damage;
+        currentHealth -= Proj.damage;
         if (currentHealth <= 0f)
             Die();
     }
