@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class ChaseScript : MonoBehaviour
 {
+    
     [Header("Stats")]
     public float maxHealth;
+    public float health;
     public float moveSpeed;
     public float damage;
     private Rigidbody2D rb;
@@ -16,7 +18,9 @@ public class ChaseScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         
+
     }
+    
     // Start is called before the first frame update
     void Start()
     {
