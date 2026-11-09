@@ -2,11 +2,22 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance { get; private set; }
     public PlayerClassSO startingClass;
     public PlayerStats playerStats;
     public WeaponController weaponController;
     public WeaponInventory playerInventory;
 
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
     void Start()
     {
         playerStats.Initialize(startingClass);
