@@ -34,7 +34,6 @@ public class EnemyBasics : MonoBehaviour
         {
             Die();
         }
-            
     }
     void Die()
     {
