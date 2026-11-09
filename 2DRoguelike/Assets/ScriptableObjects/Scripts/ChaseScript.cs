@@ -7,7 +7,6 @@ public class ChaseScript : MonoBehaviour
     
     [Header("Stats")]
     public float maxHealth;
-    public float health;
     public float moveSpeed;
     public float damage;
     private Rigidbody2D rb;
