@@ -41,7 +41,10 @@ public class EnemyBasics : MonoBehaviour
     {
         currentHealth -= Proj.damage;
         if (currentHealth <= 0f)
+        {
             Die();
+        }
+            
     }
     void Die()
     {

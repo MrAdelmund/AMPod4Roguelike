@@ -11,7 +11,7 @@ public class portals : MonoBehaviour
     {
         //if (SceneManager.GetActiveScene().name == "shop" || !WaveManager.roundActive)
         // {
-        Debug.Log("I hit portal");
+        
         if (other.CompareTag("Player"))
         {
             other.transform.position = new Vector3(targetCoordinates.x, targetCoordinates.y);
