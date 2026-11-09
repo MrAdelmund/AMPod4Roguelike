@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3119861206660927707}
   - component: {fileID: -1131980473691007606}
   - component: {fileID: 5734325046311758238}
+  - component: {fileID: 1925164631304796702}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -162,6 +163,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 20
+  health: 0
   moveSpeed: 2
   damage: 10
   Player: {fileID: 0}
+--- !u!114 &1925164631304796702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8971840052728973215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995e4ce95247cce40834d08d86efae19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyStas: {fileID: 5734325046311758238}
+  currentHealth: 0
+  xpOrbPrefab: {fileID: 2253733841778717449, guid: ea292df7d5072b640a056592ee338464, type: 3}
+  xpValue: 1
+  goldValue: 1
+  goldOrbPrefab: {fileID: 1086962609720489199, guid: 6993e470e854373428da93b70e2344ea, type: 3}
+  EnemyStats: {fileID: 5734325046311758238}

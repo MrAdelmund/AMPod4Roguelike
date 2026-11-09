@@ -67,7 +67,7 @@ public class WeaponController : MonoBehaviour
     
     private void Fire(WeaponSO weapon, Transform spawnPoint)
     {
-        ChaseScript target = GetNearestEnemy();
+        EnemyBasics target = GetNearestEnemy();
         if (target == null) return;
 
         Vector2 dir = (target.transform.position - spawnPoint.GetChild(0).transform.position).normalized;
@@ -94,12 +94,12 @@ public class WeaponController : MonoBehaviour
         );
     }
 
-    private ChaseScript GetNearestEnemy()
+    private EnemyBasics GetNearestEnemy()
     {
-        ChaseScript closest = null;
+        EnemyBasics closest = null;
         float minDist = float.MaxValue;
 
-        foreach (ChaseScript e in ChaseScript.ActiveEnemies)
+        foreach (EnemyBasics e in EnemyBasics.ActiveEnemies)
         {
             if (e == null) continue;
 
