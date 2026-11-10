@@ -3,14 +3,19 @@ using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEditor.Experimental.GraphView.GraphView;
 public class EnemyWaves : MonoBehaviour
 {
     
     [Header("Wave Info")]
-    public float SpawnTimer;
+
     public float Scaling;
     public float WaveAmount;
     public bool WaveActive;
+
+    [Header("Spawn Settings")]
+    public float spawnRate = 1f;
+    //public float spawnRadius = 10f;
 
     [Header("Enemy Info")]
     public GameObject BasicEnemy;
@@ -21,11 +26,12 @@ public class EnemyWaves : MonoBehaviour
     [SerializeField] private ChaseScript EnemyStats;
     public Sprite[] SpriteList;
     
+    GameObject Player;
     // Start is called before the first frame update
     void Start()
     {
         WaveAmount = 1;
-
+        Player = GameObject.FindGameObjectWithTag("Player");
     }
     void nextWave()
     {
@@ -58,34 +64,39 @@ public class EnemyWaves : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SpawnTimer = SpawnTimer - Time.deltaTime;
+        spawnRate -= Time.deltaTime;
         nextWave();
         SpawnInWave();
     }
     void SpawnInWave()
     {
-        if (WaveActive == true && SpawnTimer <=0 && SceneManager.GetActiveScene().name != "shop")
+
+        if (WaveActive == true && spawnRate <=0 && SceneManager.GetActiveScene().name != "shop")
         {
             int R = Random.Range(1, 101);
             if (R < 81 && NEnemy > 1)
             {
-
-                EnemyStats.maxHealth = 20f;
+                
+                EnemyStats.maxHealth = 100f;
                 EnemyStats.moveSpeed = 2f;
                 EnemyStats.Edamage = 10f;
-                GameObject e = Instantiate(BasicEnemy);
+                GameObject e = Instantiate(
+                    BasicEnemy
+
+
+                    );
                 e.GetComponent<SpriteRenderer>().color = Color.white;
                 //you need to change the index below in SpriteList[] to be the number you want. For example, if you have 10 waves and 10 different sprites, you can do based on the wave #
                 e.GetComponent<SpriteRenderer>().sprite = SpriteList[0];
                 
                 NEnemy = NEnemy - 1;
-                SpawnTimer = 1;
+                spawnRate = 1;
             }
             else
             {
                 if (R >= 81 && UEnemy > 0)
                 {
-                    EnemyStats.maxHealth = 30f;
+                    EnemyStats.maxHealth = 130f;
                     EnemyStats.moveSpeed = 1.5f;
                     EnemyStats.Edamage = 15f;
                     GameObject e = Instantiate(BasicEnemy);
@@ -93,11 +104,12 @@ public class EnemyWaves : MonoBehaviour
                     e.GetComponent<SpriteRenderer>().sprite = SpriteList[1];
 
                     UEnemy = UEnemy - 1;
-                    SpawnTimer = 1.5f;
+                    spawnRate = 1.5f;
                 }
             }
             
         }
 
     }
+      
 }
