@@ -1,7 +1,6 @@
+using UnityEngine;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEngine;
-using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Enemy : MonoBehaviour
@@ -74,15 +73,13 @@ public class Enemy : MonoBehaviour
         //Vector2 direction = (player.transform.position - transform.position).normalized;
         //rb.MovePosition(rb.position + direction * data.moveSpeed * Time.fixedDeltaTime);
     }
+
     public void TakeDamage(float damage)
     {
-        currentHealth -= damage;
+        
         if (currentHealth <= 0f)
-        {
             Die();
-        }
     }
-    
 
     void Die()
     {
