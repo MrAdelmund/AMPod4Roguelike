@@ -12,7 +12,7 @@ public class PlayerStats : MonoBehaviour
     public float damageMultiplier;
     public float regenInterval;
     public float regenAmount;
-
+    [SerializeField] ChaseScript EnemyStats;
     public float regenTimer;
     private bool dead = false;
     public void Initialize(PlayerClassSO newClass)
@@ -90,6 +90,14 @@ public class PlayerStats : MonoBehaviour
             moveSpeed = 0f;
             dead = true;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("Yes");
+        if(gameObject.tag == "Enemy")
+        {
+            currentHealth -= EnemyStats.damage;
         }
     }
 }

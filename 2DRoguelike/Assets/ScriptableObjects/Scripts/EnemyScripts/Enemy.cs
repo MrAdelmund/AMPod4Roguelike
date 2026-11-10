@@ -76,7 +76,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        currentHealth -= damage;
+        
         if (currentHealth <= 0f)
             Die();
     }
