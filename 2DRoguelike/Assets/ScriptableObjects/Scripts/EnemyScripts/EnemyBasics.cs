@@ -29,9 +29,12 @@ public class EnemyBasics : MonoBehaviour
     }
     public void TakeDamage(float damage)
     {
-        currentHealth -= Proj.damage;
+        
         if (currentHealth <= 0f)
-        Die();
+        {
+            Die();
+        }
+        
     }
     void Die()
     {
@@ -56,6 +59,7 @@ public class EnemyBasics : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
+        
         PlayerStats player = other.GetComponent<PlayerStats>();
 
         if (player != null && behavior == null)
