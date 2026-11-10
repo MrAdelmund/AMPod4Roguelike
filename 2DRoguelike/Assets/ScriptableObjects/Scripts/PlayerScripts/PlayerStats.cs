@@ -94,10 +94,7 @@ public class PlayerStats : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Yes");
-        if(gameObject.tag == "Enemy")
-        {
-            currentHealth -= EnemyStats.damage;
-        }
+        
+        
     }
 }

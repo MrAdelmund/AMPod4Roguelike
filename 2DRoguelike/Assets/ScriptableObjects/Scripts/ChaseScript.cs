@@ -8,7 +8,7 @@ public class ChaseScript : MonoBehaviour
     [Header("Stats")]
     public float maxHealth;
     public float moveSpeed;
-    public float damage;
+    public float Edamage;
     private Rigidbody2D rb;
     public GameObject Player;
     
