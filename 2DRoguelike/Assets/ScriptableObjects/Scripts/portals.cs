@@ -17,7 +17,7 @@ public class portals : MonoBehaviour
             other.transform.position = new Vector3(targetCoordinates.x, targetCoordinates.y);
 
 
-            Debug.Log("I enter portal");
+           
             SceneManager.LoadScene(SceneToLoad);
         }
         // }
