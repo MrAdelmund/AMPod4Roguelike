@@ -11,7 +11,7 @@ public class portals : MonoBehaviour
     {
         //if (SceneManager.GetActiveScene().name == "shop" || !WaveManager.roundActive)
         // {
-        
+        EnemyBasics enemyBasics = other.GetComponent<EnemyBasics>();
         if (other.CompareTag("Player"))
         {
             other.transform.position = new Vector3(targetCoordinates.x, targetCoordinates.y);

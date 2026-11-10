@@ -72,7 +72,7 @@ public class EnemyWaves : MonoBehaviour
 
                 EnemyStats.maxHealth = 20f;
                 EnemyStats.moveSpeed = 2f;
-                EnemyStats.damage = 10f;
+                EnemyStats.Edamage = 10f;
                 GameObject e = Instantiate(BasicEnemy);
                 e.GetComponent<SpriteRenderer>().color = Color.white;
                 //you need to change the index below in SpriteList[] to be the number you want. For example, if you have 10 waves and 10 different sprites, you can do based on the wave #
@@ -87,7 +87,7 @@ public class EnemyWaves : MonoBehaviour
                 {
                     EnemyStats.maxHealth = 30f;
                     EnemyStats.moveSpeed = 1.5f;
-                    EnemyStats.damage = 10f;
+                    EnemyStats.Edamage = 15f;
                     GameObject e = Instantiate(BasicEnemy);
                     e.GetComponent<SpriteRenderer>().color = Color.white;
                     e.GetComponent<SpriteRenderer>().sprite = SpriteList[1];

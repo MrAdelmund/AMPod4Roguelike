@@ -11,7 +11,7 @@ public class EnemyBasics : MonoBehaviour
     public int goldValue = 1;
     private EnemyBehavior behavior;
     public GameObject goldOrbPrefab;
-    [SerializeField] Projectile Proj;
+    [SerializeField] Projectile proj;
     [SerializeField] ChaseScript EnemyStats;
     [HideInInspector] public GameObject GetPlayerObject() => player;
     private GameObject player;
@@ -29,9 +29,12 @@ public class EnemyBasics : MonoBehaviour
     }
     public void TakeDamage(float damage)
     {
-        currentHealth -= Proj.damage;
+        currentHealth -= damage;
         if (currentHealth <= 0f)
-        Die();
+        {
+            Die();
+        }
+        
     }
     void Die()
     {
@@ -56,11 +59,13 @@ public class EnemyBasics : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
+        
+
         PlayerStats player = other.GetComponent<PlayerStats>();
 
         if (player != null && behavior == null)
         {
-            player.TakeDamage(EnemyStats.damage);
+            player.TakeDamage(EnemyStats.Edamage);
         }
     }
 }
