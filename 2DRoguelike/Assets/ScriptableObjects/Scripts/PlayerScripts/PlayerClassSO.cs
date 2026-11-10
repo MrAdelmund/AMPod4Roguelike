@@ -18,4 +18,5 @@ public class PlayerClassSO : ScriptableObject
 
     [Header("Starting Loadout")]
     public WeaponSO startingWeapon;
+
 }

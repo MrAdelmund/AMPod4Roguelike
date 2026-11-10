@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public PlayerStats playerStats;
     public WeaponController weaponController;
     public WeaponInventory playerInventory;
+    public PlayerClassSO SelectedClass { get; set; }
 
     private void Awake()
     {
