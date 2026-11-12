@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityUtils;
 using static UnityEditor.Experimental.GraphView.GraphView;
 public class EnemyWaves : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class EnemyWaves : MonoBehaviour
 
     [Header("Spawn Settings")]
     public float spawnRate = 1f;
-    //public float spawnRadius = 10f;
+    public float spawnRadius = 10f;
 
     [Header("Enemy Info")]
     public GameObject BasicEnemy;
@@ -25,18 +26,26 @@ public class EnemyWaves : MonoBehaviour
     public float UEnemy;
     [SerializeField] private ChaseScript EnemyStats;
     public Sprite[] SpriteList;
-    
+    public Vector3 SpawnTHingya;
     GameObject Player;
+
+    [Header("References")]
+    public GameObject player;
+    public Transform[] EnemySpawns;
+    public Transform spawnPos;
+
     // Start is called before the first frame update
     void Start()
     {
         WaveAmount = 1;
         Player = GameObject.FindGameObjectWithTag("Player");
+        
     }
     void nextWave()
     {
+
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        if (enemies.Length <= 0)
+        if (enemies.Length <= 0 && WaveActive == false)
         {
 
             WaveAmount = WaveAmount + 1;
@@ -65,6 +74,7 @@ public class EnemyWaves : MonoBehaviour
     void Update()
     {
         spawnRate -= Time.deltaTime;
+        
         nextWave();
         SpawnInWave();
     }
@@ -73,18 +83,20 @@ public class EnemyWaves : MonoBehaviour
 
         if (WaveActive == true && spawnRate <=0 && SceneManager.GetActiveScene().name != "shop")
         {
+            
+
+            GameObject currentPlayer = GameObject.FindGameObjectWithTag("Player");
+
             int R = Random.Range(1, 101);
-            if (R < 81 && NEnemy > 1)
+            if (R < 81 && NEnemy > 0)
             {
                 
                 EnemyStats.maxHealth = 100f;
                 EnemyStats.moveSpeed = 2f;
                 EnemyStats.Edamage = 10f;
-                GameObject e = Instantiate(
-                    BasicEnemy
-
-
-                    );
+                int f = Random.Range(0, EnemySpawns.Length);
+                GameObject e = Instantiate(BasicEnemy, EnemySpawns[f].position, Quaternion.identity);
+                //e.GetComponent<Transform>().position = spawnPos[1];
                 e.GetComponent<SpriteRenderer>().color = Color.white;
                 //you need to change the index below in SpriteList[] to be the number you want. For example, if you have 10 waves and 10 different sprites, you can do based on the wave #
                 e.GetComponent<SpriteRenderer>().sprite = SpriteList[0];
@@ -99,7 +111,8 @@ public class EnemyWaves : MonoBehaviour
                     EnemyStats.maxHealth = 130f;
                     EnemyStats.moveSpeed = 1.5f;
                     EnemyStats.Edamage = 15f;
-                    GameObject e = Instantiate(BasicEnemy);
+                    int f = Random.Range(0, EnemySpawns.Length);
+                    GameObject e = Instantiate(BasicEnemy, EnemySpawns[f].position, Quaternion.identity);
                     e.GetComponent<SpriteRenderer>().color = Color.white;
                     e.GetComponent<SpriteRenderer>().sprite = SpriteList[1];
 
@@ -111,5 +124,6 @@ public class EnemyWaves : MonoBehaviour
         }
 
     }
+    
       
 }
