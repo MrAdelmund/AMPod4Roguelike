@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public string selectedClass = "scout"; //defult
     public static GameManager Instance { get; private set; }
     public PlayerClassSO startingClass;
     public PlayerStats playerStats;
@@ -24,6 +25,10 @@ public class GameManager : MonoBehaviour
         playerStats.Initialize(startingClass);
         // Add the starting weapon to the player's inventory
         playerInventory.AddWeapon(startingClass.startingWeapon);
+
+    }
+    // public void SelectClasses(string className);
+    {
 
     }
 }
