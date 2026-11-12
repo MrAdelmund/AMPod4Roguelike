@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class XpOrb : MonoBehaviour
 {
+    public float Timer;
     public int xpAmount = 1;
 
     void OnTriggerEnter2D(Collider2D other)
@@ -13,4 +14,17 @@ public class XpOrb : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    private void Start()
+    {
+        
+    }
+    private void Update()
+    {
+        Timer -= Time.deltaTime;
+        if(Timer < 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
 }

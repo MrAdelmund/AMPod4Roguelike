@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerStats))]
 public class WeaponController : MonoBehaviour
 {
+    
     private List<WeaponSO> equippedWeapons = new List<WeaponSO>();
     private Dictionary<WeaponSO, float> fireTimers = new Dictionary<WeaponSO, float>();
     private PlayerStats stats;
@@ -69,29 +71,30 @@ public class WeaponController : MonoBehaviour
     {
         EnemyBasics target = GetNearestEnemy();
         if (target == null) return;
+        Transform currentFirePoint = spawnPoint.GetChild(0);
 
-        Vector2 dir = (target.transform.position - spawnPoint.GetChild(0).transform.position).normalized;
-
+        Vector2 dir = (target.transform.position - currentFirePoint.position).normalized;
         // Rotate the spawn point (weapon sprite) to face the target
-        spawnPoint.right = dir; // assumes the sprite points "up"
+        spawnPoint.up = dir; // assumes the sprite points "up"
 
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        
         Projectile proj = Instantiate(
             weapon.projectilePrefab,
-            spawnPoint.GetChild(0).transform.position,
-            Quaternion.identity
+            currentFirePoint.position,
+            spawnPoint.rotation
         );
-
-        // Make projectile face the same direction as weapon
-        proj.transform.right = dir;
+        proj.transform.up = dir;
 
         float finalDamage = weapon.damage * stats.damageMultiplier;
 
         proj.Initialize(
-            finalDamage,
-            weapon.projectileSpeed,
-            weapon.range,
-            dir
+          finalDamage,
+          weapon.projectileSpeed,
+           weapon.range,
+          weapon
         );
+      
     }
 
     private EnemyBasics GetNearestEnemy()

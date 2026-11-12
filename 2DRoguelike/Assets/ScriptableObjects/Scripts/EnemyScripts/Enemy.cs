@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     public float currentHealth;
     private GameObject player;
     private Rigidbody2D rb;
-
+    
     [Header("XP")]
     public GameObject xpOrbPrefab;
     public int xpValue = 1;

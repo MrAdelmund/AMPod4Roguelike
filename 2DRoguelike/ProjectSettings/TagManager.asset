@@ -23,9 +23,9 @@ TagManager:
   - UI
   - Boss
   - Boss Weapon
-  - 
-  - 
-  - 
+  - player
+  - enemy
+  - player_projectile
   - 
   - 
   - 
