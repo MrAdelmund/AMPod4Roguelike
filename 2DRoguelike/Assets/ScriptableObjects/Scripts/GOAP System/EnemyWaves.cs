@@ -45,7 +45,7 @@ public class EnemyWaves : MonoBehaviour
     {
 
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        if (enemies.Length <= 0 && WaveActive == false)
+        if (enemies.Length <= 0 && NEnemy == 0 && UEnemy == 0)
         {
 
             WaveAmount = WaveAmount + 1;

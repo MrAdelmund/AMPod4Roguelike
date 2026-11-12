@@ -133,4 +133,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f69a52140f667a348a7f553fc6cbafd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Timer: 10
   goldAmount: 1
