@@ -17,5 +17,14 @@ MonoBehaviour:
   damage: 10
   fireRate: 10
   projectileSpeed: 10
-  range: 5
+  range: 7
+  critChance: 0.1
+  critmultiplier: 1.5
+  projectileCount: 1
+  spreadAngle: 0
+  pirceCount: 1
+  isHoming: 0
+  homingStrength: 5
+  bounces: 0
+  maxbounces: 2
   projectilePrefab: {fileID: 4493983500933458435, guid: 72657a49539485043bc7fe7af565a4a5, type: 3}
