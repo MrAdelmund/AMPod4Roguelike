@@ -51,7 +51,7 @@ public class Projectile : MonoBehaviour
         {
             Vector2 direction = (Vector2)target.position - rb.position;
             direction.Normalize();
-            float RotateAmount = Vector3.Cross(direction, transform.right).z;
+            float RotateAmount = Vector3.Cross(direction, transform.up).z;
             rb.angularVelocity = -RotateAmount * homingStrength * 200f;
         }
         rb.velocity = transform.right * speed;
