@@ -89,7 +89,7 @@ public class PlayerStats : MonoBehaviour
         {
             moveSpeed = 0f;
             dead = true;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene("GameOver");
         }
     }
     void OnTriggerEnter2D(Collider2D other)
