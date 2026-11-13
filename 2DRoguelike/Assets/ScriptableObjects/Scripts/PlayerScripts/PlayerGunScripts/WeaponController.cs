@@ -75,7 +75,7 @@ public class WeaponController : MonoBehaviour
 
         Vector2 dir = (target.transform.position - currentFirePoint.position).normalized;
         // Rotate the spawn point (weapon sprite) to face the target
-        spawnPoint.up = dir; // assumes the sprite points "up"
+        spawnPoint.right = dir; // assumes the sprite points "up"
 
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         
@@ -84,7 +84,7 @@ public class WeaponController : MonoBehaviour
             currentFirePoint.position,
             spawnPoint.rotation
         );
-        proj.transform.up = dir;
+        proj.transform.right = dir;
 
         float finalDamage = weapon.damage * stats.damageMultiplier;
 
