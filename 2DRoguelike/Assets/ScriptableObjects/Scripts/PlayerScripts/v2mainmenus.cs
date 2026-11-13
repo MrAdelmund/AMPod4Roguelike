@@ -30,11 +30,14 @@ public class MainMenuScript : MonoBehaviour
         mainmenupanel.SetActive(true);
         ClassSelectPanel.SetActive(false);
     }
-   /* void onSelect()
+    public static PlayerClassSO SelectedClass;
+    public void SelectClass(PlayerClassSO chosenClass)
     {
-        Debug.Log("selected Class" + className);
-        PlayerPrefs.SetString("chosenClass", className);
+        SelectedClass = chosenClass;
+        Debug.Log("selected Class" + chosenClass.className);
+        closeclassmenu();
     }
-    closeClassSelection();
-   */
+   
+
 }
+
