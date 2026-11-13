@@ -28,5 +28,5 @@ public class GameManager : MonoBehaviour
 
     }
     // public void SelectClasses(string className);
-    
+
 }
