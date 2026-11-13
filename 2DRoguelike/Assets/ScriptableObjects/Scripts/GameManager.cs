@@ -28,9 +28,5 @@ public class GameManager : MonoBehaviour
 
     }
     // public void SelectClasses(string className);
-<<<<<<< HEAD
-   
-=======
-    
->>>>>>> 5e2463f46b3d4db3902af8decaa7efae603d2c45
+
 }
