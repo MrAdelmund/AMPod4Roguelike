@@ -27,8 +27,4 @@ public class GameManager : MonoBehaviour
         playerInventory.AddWeapon(startingClass.startingWeapon);
 
     }
-    // public void SelectClasses(string className);
-    {
-
-    }
 }
