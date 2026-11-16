@@ -12,9 +12,7 @@ public class EnemySO : ScriptableObject
     public float moveSpeed = 2f;
     public float damage = 10f;
 
-    [Header("Spawn")]
-    public float spawnWeight = 1f;
-
+    
     [Header("Prefabs")]
     public Enemy enemyPrefab;
     public EnemyBehavior behaviorPrefab;

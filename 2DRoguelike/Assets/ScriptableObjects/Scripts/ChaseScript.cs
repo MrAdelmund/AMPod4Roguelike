@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[CreateAssetMenu(menuName = "Roguelite/EnemyBasics")]
 public class ChaseScript : MonoBehaviour
 {
     
+
     [Header("Stats")]
     public float maxHealth;
     public float moveSpeed;

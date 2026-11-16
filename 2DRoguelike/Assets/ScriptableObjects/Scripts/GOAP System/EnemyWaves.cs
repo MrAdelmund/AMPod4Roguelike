@@ -27,9 +27,11 @@ public class EnemyWaves : MonoBehaviour
     [SerializeField] private ChaseScript EnemyStats;
     public Sprite[] SpriteList;
     public Vector3 SpawnTHingya;
+    public GameObject[] EnemyList;
     GameObject Player;
 
     [Header("References")]
+    
     public GameObject player;
     public Transform[] EnemySpawns;
     public Transform spawnPos;
@@ -85,7 +87,7 @@ public class EnemyWaves : MonoBehaviour
         {
             
 
-            GameObject currentPlayer = GameObject.FindGameObjectWithTag("Player");
+            
 
             int R = Random.Range(1, 101);
             if (R < 81 && NEnemy > 0)
