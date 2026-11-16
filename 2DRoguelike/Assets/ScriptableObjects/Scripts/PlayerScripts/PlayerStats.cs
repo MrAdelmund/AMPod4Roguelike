@@ -91,6 +91,7 @@ public class PlayerStats : MonoBehaviour
             dead = true;
             SceneManager.LoadScene("GameOver");
         }
+        
     }
     void OnTriggerEnter2D(Collider2D other)
     {
