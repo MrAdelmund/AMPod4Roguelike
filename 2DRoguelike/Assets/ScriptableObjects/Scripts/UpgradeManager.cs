@@ -35,7 +35,7 @@ public class UpgradeManager : MonoBehaviour
     public void ApplyUpgrade(UpgradeSO upgrade)
     {
         playerStats.ApplyUpgrade(upgrade);
-        FindObjectOfType<WaveManager>().OnShopClosed();
+        //FindObjectOfType<WaveManager>().OnShopClosed();
     }
 
 }
