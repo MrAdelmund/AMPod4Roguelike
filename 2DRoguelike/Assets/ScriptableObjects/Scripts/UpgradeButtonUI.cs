@@ -8,7 +8,7 @@ public class UpgradeButtonUI : MonoBehaviour
     public TMP_Text nameText;
     public TMP_Text descriptionText;
     public Button button;
-
+    public GameObject UpgradePanel;
     private UpgradeSO upgrade;
 
     public void Setup(UpgradeSO upgradeData, System.Action<UpgradeSO> onClick)
@@ -32,5 +32,5 @@ public class UpgradeButtonUI : MonoBehaviour
         button.onClick.RemoveAllListeners();
         button.onClick.AddListener(() => onClick.Invoke(weapon));
     }
-
+    
 }

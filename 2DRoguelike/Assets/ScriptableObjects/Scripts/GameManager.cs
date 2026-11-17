@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public PlayerStats playerStats;
     public WeaponController weaponController;
     public WeaponInventory playerInventory;
-    public PlayerClassSO SelectedClass { get; set; }
+    public PlayerClassSO SelectedClass { get; private set; }
 
     private void Awake()
     {
@@ -19,12 +19,22 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
+        if (MainMenuScript.SelectedClass != null)
+        {
+            SelectedClass = MainMenuScript.SelectedClass;
+        }
+        else
+        {
+            Debug.Log("class not work");
+            //selectedClass = PlayerClassSO.defultClass;
+        }
     }
     void Start()
     {
-        playerStats.Initialize(startingClass);
+        playerStats.Initialize(SelectedClass);
         // Add the starting weapon to the player's inventory
-        playerInventory.AddWeapon(startingClass.startingWeapon);
+        playerInventory.AddWeapon(SelectedClass.startingWeapon);
 
     }
 

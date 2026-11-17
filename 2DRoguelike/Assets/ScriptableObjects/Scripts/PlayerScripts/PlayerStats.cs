@@ -15,6 +15,10 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] ChaseScript EnemyStats;
     public float regenTimer;
     private bool dead = false;
+    
+    
+
+   
     public void Initialize(PlayerClassSO newClass)
     {
         playerClass = newClass;

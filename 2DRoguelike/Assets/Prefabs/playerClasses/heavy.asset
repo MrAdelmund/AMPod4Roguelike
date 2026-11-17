@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d588794e555f0c48a3ca25cf27eef25, type: 3}
-  m_Name: New Player Class SO
+  m_Name: heavy
   m_EditorClassIdentifier: 
-  className: 
+  className: heavy
   description: 
-  icon: {fileID: 0}
-  maxHealth: 100
-  moveSpeed: 5
+  icon: {fileID: 1370348810383296446, guid: 6bff0dab762b12240b1345b3a93dbc76, type: 3}
+  defultClass: {fileID: 0}
+  maxHealth: 200
+  moveSpeed: 3
   damageMultiplier: 1
   regenInterval: 0.5
   regenAmount: 0.2
-  startingWeapon: {fileID: 0}
+  startingWeapon: {fileID: 11400000, guid: d7e0558d77fbc7b49bb72eef771c2310, type: 2}

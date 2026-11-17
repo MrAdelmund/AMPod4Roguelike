@@ -8,7 +8,16 @@ public class PlayerClassSO : ScriptableObject
     [TextArea]
     public string description;
     public Sprite icon;
+    private PlayerClassSO activeClass;
+    [Header("defualt class")]
+    [SerializeField] public PlayerClassSO defultClass;
+    public void Start()
+    {
+        activeClass = MainMenuScript.SelectedClass != null
+            ? MainMenuScript.SelectedClass
+            : defultClass;
 
+    }
     [Header("Base Stats")]
     public float maxHealth = 100f;
     public float moveSpeed = 5f;

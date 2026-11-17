@@ -1,9 +1,14 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class WeaponManager : MonoBehaviour
 {
-    [Header("References")]
+
+    public int projectileCount = 1;
+    public float spreadAngle = 0f;
+
+   [Header("References")]
     public WeaponInventory inventory;    // Reference to your existing WeaponInventory
     public List<Transform> weaponSlots;  // child transforms around player
     public GameObject bulletPrefab;
@@ -45,13 +50,19 @@ public class WeaponManager : MonoBehaviour
             // Rotate weapon sprite
             slot.up = direction;
 
-            // Spawn bullet
+            float startAngle = (projectileCount > 1) ? spreadAngle / 2f : 0f;
+            float angleStep = (projectileCount > 1) ? spreadAngle / (projectileCount - 1) : 0f;
+            Vector2 spreadDirection = Quaternion.Euler(0, 0, spreadAngle) * direction;
+
+
             GameObject bullet = Instantiate(bulletPrefab, slot.position, Quaternion.identity);
             bullet.transform.up = direction;
 
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.velocity = direction * weapon.projectileSpeed;
-        }
+
+               rb.velocity = spreadDirection.normalized * weapon.projectileSpeed;
+
+         }
     }
 
     // Call this if inventory updates (player adds a weapon mid-game)
