@@ -16,7 +16,7 @@ public class EnemyWaves : MonoBehaviour
 
     [Header("Spawn Settings")]
     public float spawnRate = 1f;
-    public float spawnRadius = 10f;
+    
 
     [Header("Enemy Info")]
     public GameObject BasicEnemy;
@@ -32,7 +32,7 @@ public class EnemyWaves : MonoBehaviour
     GameObject Player;
 
     [Header("References")]
-    
+    // Finds basic stuff like player, what points to spawn the enemy from
     public GameObject player;
     public Transform[] EnemySpawns;
     public Transform spawnPos;
@@ -40,7 +40,8 @@ public class EnemyWaves : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        WaveAmount = 1;
+        //finds the Player at the start of the game and set current wave
+        
         Player = GameObject.FindGameObjectWithTag("Player");
         
     }
