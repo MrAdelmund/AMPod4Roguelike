@@ -27,9 +27,12 @@ public class EnemyWaves : MonoBehaviour
     [SerializeField] private ChaseScript EnemyStats;
     public Sprite[] SpriteList;
     public Vector3 SpawnTHingya;
+
+    public GameObject[] EnemyList;
     GameObject Player;
 
     [Header("References")]
+    
     public GameObject player;
     public Transform[] EnemySpawns;
     public Transform spawnPos;
@@ -45,7 +48,7 @@ public class EnemyWaves : MonoBehaviour
     {
 
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        if (enemies.Length <= 0 && NEnemy == 0 && UEnemy == 0)
+        if (enemies.Length <= 0 && NEnemy == 0 && UEnemy == 0 && SceneManager.GetActiveScene().name != "Shop")
         {
 
             WaveAmount = WaveAmount + 1;
@@ -85,7 +88,7 @@ public class EnemyWaves : MonoBehaviour
         {
             
 
-            GameObject currentPlayer = GameObject.FindGameObjectWithTag("Player");
+            
 
             int R = Random.Range(1, 101);
             if (R < 81 && NEnemy > 0)
@@ -96,7 +99,7 @@ public class EnemyWaves : MonoBehaviour
                 EnemyStats.Edamage = 10f;
                 int f = Random.Range(0, EnemySpawns.Length);
                 GameObject e = Instantiate(BasicEnemy, EnemySpawns[f].position, Quaternion.identity);
-                //e.GetComponent<Transform>().position = spawnPos[1];
+                
                 e.GetComponent<SpriteRenderer>().color = Color.white;
                 //you need to change the index below in SpriteList[] to be the number you want. For example, if you have 10 waves and 10 different sprites, you can do based on the wave #
                 e.GetComponent<SpriteRenderer>().sprite = SpriteList[0];
