@@ -12,21 +12,24 @@ public class EnemyProjectile : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        
         
 
     }
     void Start()
+
     {
+        rb = GetComponent<Rigidbody2D>();
         Player = GameObject.FindGameObjectWithTag("Player");
-        
+        Vector2 direction = (Player.transform.position - transform.position).normalized;
+        rb.MovePosition(rb.position + direction * Speed * Time.fixedDeltaTime);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 direction = (Player.transform.position - transform.position).normalized;
-        rb.MovePosition(rb.position + direction * Speed * Time.fixedDeltaTime);
+        
     }
 
 }
