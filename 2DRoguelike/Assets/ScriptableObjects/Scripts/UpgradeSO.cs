@@ -24,5 +24,5 @@ public class UpgradeSO : ScriptableObject
 
     [Header("Stacking")]
     public bool canStack = true;
-    public int maxStacks = 0; // 0 = infinite
+    public int maxStacks = 3; // 0 = infinite
 }
