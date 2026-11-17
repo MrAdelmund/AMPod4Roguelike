@@ -90,13 +90,5 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    internal void Initialize(float finalDamage, float projectileSpeed, float range, Vector2 dir)
-    {
-        throw new NotImplementedException();
-    }
-
-    internal void Initialize(float finalDamage, float projectileSpeed)
-    {
-        throw new NotImplementedException();
-    }
+   
 }

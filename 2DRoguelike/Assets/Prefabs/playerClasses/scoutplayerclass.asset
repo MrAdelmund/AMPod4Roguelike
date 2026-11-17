@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   className: Scout
   description: The default class. slightly above speed and good regen
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 4086571a63900464ea67e7e70ca84747, type: 3}
+  defultClass: {fileID: 0}
   maxHealth: 100
   moveSpeed: 7
   damageMultiplier: 1

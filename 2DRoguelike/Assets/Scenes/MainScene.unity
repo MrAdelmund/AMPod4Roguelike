@@ -455,9 +455,9 @@ RectTransform:
   - {fileID: 1275358671}
   m_Father: {fileID: 1286122755}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 579.5, y: -428}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &130585910
@@ -558,6 +558,7 @@ MonoBehaviour:
   nameText: {fileID: 2022188773}
   descriptionText: {fileID: 1275358672}
   button: {fileID: 130585910}
+  UpgradePanel: {fileID: 1286122754}
 --- !u!1 &249567934
 GameObject:
   m_ObjectHideFlags: 0
@@ -1158,7 +1159,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
+    rgba: 4278190080
   m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -2322,6 +2323,7 @@ MonoBehaviour:
   nameText: {fileID: 760890991}
   descriptionText: {fileID: 1017392326}
   button: {fileID: 868148289}
+  UpgradePanel: {fileID: 1286122754}
 --- !u!114 &868148289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2414,9 +2416,9 @@ RectTransform:
   - {fileID: 1017392328}
   m_Father: {fileID: 1286122755}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 972.5, y: -428}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &868148292
@@ -3172,7 +3174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebc0a972f95c2b0459c1618a2ae6d80a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerClass: {fileID: 11400000, guid: 2bcbeb8194846ad44ad4be7b36970614, type: 2}
+  playerClass: {fileID: 11400000, guid: a197f48a43449154e82b2904a49c090a, type: 2}
   currentHealth: 0
   maxHealth: 0
   moveSpeed: 0
@@ -3880,6 +3882,7 @@ MonoBehaviour:
   - {fileID: 1353966288}
   - {fileID: 130585913}
   - {fileID: 868148288}
+  - {fileID: 868148288}
 --- !u!114 &1280850424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3982,7 +3985,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1286122755
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4107,9 +4110,9 @@ RectTransform:
   - {fileID: 1045304337}
   m_Father: {fileID: 1286122755}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 186.5, y: -428}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1353966285
@@ -4210,6 +4213,7 @@ MonoBehaviour:
   nameText: {fileID: 1510269453}
   descriptionText: {fileID: 1045304338}
   button: {fileID: 1353966285}
+  UpgradePanel: {fileID: 1286122754}
 --- !u!1 &1371480308
 GameObject:
   m_ObjectHideFlags: 0
@@ -11172,7 +11176,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
+    rgba: 4278190080
   m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -11999,7 +12003,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
+    rgba: 4278190080
   m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
