@@ -704,6 +704,7 @@ MonoBehaviour:
   - {fileID: -444678978, guid: 8526afe48a93884428763aa116f4d972, type: 3}
   - {fileID: 21300000, guid: 5758f3b0578cb0a4d8e4ef90b841d851, type: 3}
   SpawnTHingya: {x: 0, y: 0, z: 0}
+  EnemyList: []
   player: {fileID: 1183110444}
   EnemySpawns:
   - {fileID: 22617325}
@@ -3351,7 +3352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 881e94e62ed55714f8edc5b9d75959b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseSpeed: 5
+  baseSpeed: 4
 --- !u!114 &1183110456
 MonoBehaviour:
   m_ObjectHideFlags: 0
