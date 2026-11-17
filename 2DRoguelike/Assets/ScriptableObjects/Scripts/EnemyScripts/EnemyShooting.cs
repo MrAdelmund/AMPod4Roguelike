@@ -6,7 +6,7 @@ public class EnemyShooting : MonoBehaviour
 {
     public GameObject Projectile;
     public float AttackCD;
-    public float AttackCDRate;
+    public float Attack;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,17 +16,17 @@ public class EnemyShooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        AttackCDRate -= Time.deltaTime;
+        Attack -= Time.deltaTime;
         ProjectileStuff();
         
     }
     void ProjectileStuff()
     {
-        if(AttackCDRate <= 0)
+        if(Attack <= 0)
         {
             Projectile.transform.position = transform.position;
             Instantiate(Projectile);
-            AttackCDRate = 5;
+            Attack = AttackCD;
         }
     }
 }
