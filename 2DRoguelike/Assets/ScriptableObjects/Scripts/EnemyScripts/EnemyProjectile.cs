@@ -22,14 +22,16 @@ public class EnemyProjectile : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         Player = GameObject.FindGameObjectWithTag("Player");
         Vector2 direction = (Player.transform.position - transform.position).normalized;
-        rb.MovePosition(rb.position + direction * Speed * Time.fixedDeltaTime);
+        rb.velocity = (direction).normalized * Speed;
+        
+        
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
 
 }
