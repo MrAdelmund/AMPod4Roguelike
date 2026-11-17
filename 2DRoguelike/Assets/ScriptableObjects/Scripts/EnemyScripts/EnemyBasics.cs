@@ -23,6 +23,7 @@ public class EnemyBasics : MonoBehaviour
         ActiveEnemies.Add(this);
         currentHealth = EnemyStats.maxHealth;
     }
+    
     private void OnDestroy()
     {
         ActiveEnemies.Remove(this);

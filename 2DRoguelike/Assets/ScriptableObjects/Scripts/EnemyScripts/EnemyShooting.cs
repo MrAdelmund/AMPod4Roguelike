@@ -22,8 +22,9 @@ public class EnemyShooting : MonoBehaviour
     }
     void ProjectileStuff()
     {
-        if(AttackCDRate >= 0)
+        if(AttackCDRate <= 0)
         {
+            Projectile.transform.position = transform.position;
             Instantiate(Projectile);
             AttackCDRate = 5;
         }
