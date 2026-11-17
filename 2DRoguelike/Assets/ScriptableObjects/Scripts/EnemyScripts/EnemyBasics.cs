@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyBasics : MonoBehaviour
 {
-    [SerializeField] ChaseScript EnemyStas;
+    
     public float currentHealth;
     public GameObject xpOrbPrefab;
     public int xpValue = 1;
@@ -21,7 +21,7 @@ public class EnemyBasics : MonoBehaviour
     {
         
         ActiveEnemies.Add(this);
-        currentHealth = EnemyStas.maxHealth;
+        currentHealth = EnemyStats.maxHealth;
     }
     private void OnDestroy()
     {
