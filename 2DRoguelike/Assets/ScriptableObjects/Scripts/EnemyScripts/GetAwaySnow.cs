@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GetAwaySnow : MonoBehaviour
 {
     public GameObject Player;
-    public float speed;
+    public float moveSpeed;
     public GameObject FindPoint;
+    public bool AlreadySpawn;
     public bool IsClose;
     public float DetectionRange = 5;
     
@@ -24,9 +26,10 @@ public class GetAwaySnow : MonoBehaviour
     void GetawayFromPlay()
     {
         float distance = Vector3.Distance(this.transform.position, Player.transform.position);
-        if (distance < DetectionRange)
+        if (distance < DetectionRange && AlreadySpawn == false)
         {
             Instantiate(FindPoint);
+            AlreadySpawn = true;
         }
     }
 }
