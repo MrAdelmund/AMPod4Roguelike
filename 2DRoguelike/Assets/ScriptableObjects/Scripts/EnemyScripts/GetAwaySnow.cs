@@ -10,10 +10,12 @@ public class GetAwaySnow : MonoBehaviour
     public GameObject FindPoint;
     public bool AlreadySpawn;
     public bool IsClose;
+    private Rigidbody2D rb;
     public float DetectionRange = 5;
     
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         Player = GameObject.FindGameObjectWithTag("Player");
         
     }
@@ -21,6 +23,8 @@ public class GetAwaySnow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        GetawayFromPlay();
         
     }
     void GetawayFromPlay()
