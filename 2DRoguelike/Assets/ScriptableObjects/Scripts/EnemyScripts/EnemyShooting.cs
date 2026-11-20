@@ -27,6 +27,7 @@ public class EnemyShooting : MonoBehaviour
             Projectile.transform.position = transform.position;
             Instantiate(Projectile);
             Attack = AttackCD;
+            Destroy(this, 5);
         }
     }
 }

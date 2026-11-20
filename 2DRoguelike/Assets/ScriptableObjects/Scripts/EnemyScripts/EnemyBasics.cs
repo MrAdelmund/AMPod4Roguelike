@@ -11,7 +11,7 @@ public class EnemyBasics : MonoBehaviour
     public int goldValue = 1;
     private EnemyBehavior behavior;
     public GameObject goldOrbPrefab;
-    [SerializeField] Projectile proj;
+    
     [SerializeField] ChaseScript EnemyStats;
     [HideInInspector] public GameObject GetPlayerObject() => player;
     private GameObject player;
