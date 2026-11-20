@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 2994048489556581378}
   - component: {fileID: 1962047603481812897}
   - component: {fileID: 3119861206660927707}
-  - component: {fileID: 1495733750903697733}
-  - component: {fileID: -1131980473691007606}
   - component: {fileID: -7334581533019954754}
+  - component: {fileID: -8276840449963424}
+  - component: {fileID: -1179177571355516690}
+  - component: {fileID: -4710063277047250723}
   m_Layer: 6
   m_Name: Boss_Orc
-  m_TagString: Boss
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,7 +104,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -115,24 +116,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1495733750903697733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8971840052728973215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f9c49b24add614fa937dcf61044346, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentHealth: 0
-  xpOrbPrefab: {fileID: 2253733841778717449, guid: ea292df7d5072b640a056592ee338464, type: 3}
-  xpValue: 50
-  goldValue: 15
-  goldOrbPrefab: {fileID: 1086962609720489199, guid: 6993e470e854373428da93b70e2344ea, type: 3}
---- !u!58 &-1131980473691007606
+--- !u!58 &-7334581533019954754
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -164,41 +148,55 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.029609347, y: 0}
   serializedVersion: 2
-  m_Radius: 1
---- !u!58 &-7334581533019954754
-CircleCollider2D:
+  m_Radius: 0.13094258
+--- !u!114 &-8276840449963424
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8971840052728973215}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.2
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6b98b53e03b3624d98b55211293ad05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Projectile: {fileID: 7353326907097860578, guid: 2e45a830b6c8af8469fb91288968cdd3, type: 3}
+  AttackCD: 5
+  Attack: 0
+--- !u!114 &-1179177571355516690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8971840052728973215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bed22174816192a48b72ccff7fabf64b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
+  moveSpeed: 1.5
+  Edamage: 30
+  Player: {fileID: 0}
+--- !u!114 &-4710063277047250723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8971840052728973215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995e4ce95247cce40834d08d86efae19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 0
+  xpOrbPrefab: {fileID: 2253733841778717449, guid: ea292df7d5072b640a056592ee338464, type: 3}
+  xpValue: 100
+  goldValue: 100
+  goldOrbPrefab: {fileID: 1086962609720489199, guid: 6993e470e854373428da93b70e2344ea, type: 3}
+  EnemyStats: {fileID: 5734325046311758238, guid: 2981c5793a464524395d53c94db9cbba, type: 3}

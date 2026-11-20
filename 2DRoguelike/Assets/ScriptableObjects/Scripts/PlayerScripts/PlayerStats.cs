@@ -13,6 +13,7 @@ public class PlayerStats : MonoBehaviour
     public float regenInterval;
     public float regenAmount;
     [SerializeField] ChaseScript EnemyStats;
+    [SerializeField] EnemyProjectile ProjStuff;
     public float regenTimer;
     private bool dead = false;
     

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -16,10 +17,11 @@ public class EnemyWaves : MonoBehaviour
 
     [Header("Spawn Settings")]
     public float spawnRate = 1f;
-    public float spawnRadius = 10f;
+    
 
     [Header("Enemy Info")]
     public GameObject BasicEnemy;
+    public GameObject Boss;
     // Normal enemy basically the common slime
     public float NEnemy;
     // Anything other then a Basic enemy, like Shielders, Snowman ETC.
@@ -27,20 +29,22 @@ public class EnemyWaves : MonoBehaviour
     [SerializeField] private ChaseScript EnemyStats;
     public Sprite[] SpriteList;
     public Vector3 SpawnTHingya;
-
+    public bool BossSpawned;
     public GameObject[] EnemyList;
+    
     GameObject Player;
 
     [Header("References")]
-    
+    // Finds basic stuff like player, what points to spawn the enemy from
     public GameObject player;
     public Transform[] EnemySpawns;
     public Transform spawnPos;
-
+    
     // Start is called before the first frame update
     void Start()
     {
-        WaveAmount = 1;
+        //finds the Player at the start of the game and set current wave
+        
         Player = GameObject.FindGameObjectWithTag("Player");
         
     }
@@ -122,6 +126,16 @@ public class EnemyWaves : MonoBehaviour
                     UEnemy = UEnemy - 1;
                     spawnRate = 1.5f;
                 }
+            }
+            if (WaveAmount == 10 && BossSpawned == false)
+            {
+                EnemyStats.maxHealth = 2000f;
+                EnemyStats.moveSpeed = 2f;
+                EnemyStats.Edamage = 30f;
+                int f = Random.Range(0, EnemySpawns.Length);
+                GameObject g = Instantiate(Boss, EnemySpawns[f].position, Quaternion.identity);
+                
+                BossSpawned = true;
             }
             
         }

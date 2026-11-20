@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class EnemyBasics : MonoBehaviour
 {
-    [SerializeField] ChaseScript EnemyStas;
+    
     public float currentHealth;
     public GameObject xpOrbPrefab;
     public int xpValue = 1;
     public int goldValue = 1;
     private EnemyBehavior behavior;
     public GameObject goldOrbPrefab;
-    [SerializeField] Projectile proj;
+    
     [SerializeField] ChaseScript EnemyStats;
     [HideInInspector] public GameObject GetPlayerObject() => player;
     private GameObject player;
@@ -21,8 +21,9 @@ public class EnemyBasics : MonoBehaviour
     {
         
         ActiveEnemies.Add(this);
-        currentHealth = EnemyStas.maxHealth;
+        currentHealth = EnemyStats.maxHealth;
     }
+    
     private void OnDestroy()
     {
         ActiveEnemies.Remove(this);
