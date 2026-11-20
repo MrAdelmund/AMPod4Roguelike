@@ -21,8 +21,8 @@ MonoBehaviour:
   critChance: 0.1
   critmultiplier: 1.5
   projectileCount: 5
-  spreadAngle: 5
-  pirceCount: 1
+  spreadAngle: 30
+  playerPircecount: 2
   isHoming: 0
   homingStrength: 5
   bounces: 0

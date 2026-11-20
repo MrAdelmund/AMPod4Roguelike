@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 
 public class WeaponManager : MonoBehaviour
 {
-
+    public int playerPircecount = 1;
     public int projectileCount = 1;
     public float spreadAngle = 0f;
 
@@ -50,19 +50,24 @@ public class WeaponManager : MonoBehaviour
             // Rotate weapon sprite
             slot.up = direction;
 
-            float startAngle = (projectileCount > 1) ? spreadAngle / 2f : 0f;
-            float angleStep = (projectileCount > 1) ? spreadAngle / (projectileCount - 1) : 0f;
+
             Vector2 spreadDirection = Quaternion.Euler(0, 0, spreadAngle) * direction;
 
+           
+            
+                GameObject bullet = Instantiate(bulletPrefab, slot.position, Quaternion.identity);
+                bullet.transform.up = direction;
 
-            GameObject bullet = Instantiate(bulletPrefab, slot.position, Quaternion.identity);
-            bullet.transform.up = direction;
+                Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
 
-            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-
-               rb.velocity = spreadDirection.normalized * weapon.projectileSpeed;
-
-         }
+                rb.velocity = spreadDirection.normalized * weapon.projectileSpeed;
+                if (bullet.TryGetComponent<Projectile>(out Projectile ProjectileScript))
+                {
+                    // Pass all 4 required parameters in the exact order defined in Projectile.cs
+                    ProjectileScript.Initialize(weapon.projectileSpeed, weapon.damage, weapon.projectileCount,  //weapon);   
+                    weapon);
+                }
+        }
     }
 
     // Call this if inventory updates (player adds a weapon mid-game)
@@ -83,4 +88,5 @@ public class WeaponManager : MonoBehaviour
             }
         }
     }
+   
 }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Health regen
   type: 2
-  cost: 1
+  cost: 10
   weapon: {fileID: 0}
   statUpgrade: {fileID: 11400000, guid: e9c6670c1bb67a64aaf088824ebd72d4, type: 2}
   icon: {fileID: 21300000, guid: 4e00491a45a8fb24d91fcb870c0364fa, type: 3}

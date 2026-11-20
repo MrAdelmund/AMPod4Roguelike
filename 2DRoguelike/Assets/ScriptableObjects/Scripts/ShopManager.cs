@@ -71,7 +71,7 @@ public class ShopManager : MonoBehaviour
 
     void DisplayShop()
     {
-        rerollButton.GetComponentInChildren<TMP_Text>().text = "Reroll: "+ currentRerollCost.ToString();
+        rerollButton.GetComponentInChildren<TMP_Text>().text = "Reroll: " + currentRerollCost.ToString();
         foreach (Transform t in statContainer) Destroy(t.gameObject);
         foreach (Transform t in weaponContainer) Destroy(t.gameObject);
         foreach (Transform t in relicContainer) Destroy(t.gameObject);
@@ -139,7 +139,10 @@ public class ShopManager : MonoBehaviour
     {
         shopPanel.SetActive(false);
         Time.timeScale = 1f;
-        FindObjectOfType<WaveManager>().OnShopClosed();
+        // FindObjectOfType<WaveManager>().OnShopClosed();
         currentRerollCost = baseRerollCost;
     }
+    
+
 }
+

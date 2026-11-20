@@ -162,4 +162,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
+  pirceCount: 2
+  homingStrength: 0
   isHoming: 0

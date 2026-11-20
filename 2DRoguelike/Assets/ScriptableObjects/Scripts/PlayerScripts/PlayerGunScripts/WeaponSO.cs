@@ -23,7 +23,7 @@ public class WeaponSO : ScriptableObject
 
     [Header("projectile modifiers")]
     
-    public int pirceCount = 1;
+    public int playerPircecount = 1;
     public bool isHoming = false;
     public float homingStrength = 5f;
     public bool bounces = false;
@@ -31,7 +31,7 @@ public class WeaponSO : ScriptableObject
 
     [Header("Prefabs")]
     public Projectile projectilePrefab;
-
+    
     public float GetFinalDamage(out bool isCrit)
     {
         isCrit = Random.value <= critChance;

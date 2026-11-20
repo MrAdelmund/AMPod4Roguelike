@@ -25,4 +25,7 @@ public class UpgradeSO : ScriptableObject
     [Header("Stacking")]
     public bool canStack = true;
     public int maxStacks = 3; // 0 = infinite
+
+    [SerializeField] public float critChance = 0.1f;
+    [SerializeField] public int pirceCount = 1;
 }

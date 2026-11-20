@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -8,14 +9,17 @@ public class Projectile : MonoBehaviour
     public float damage;
     private float speed;
     private float range;
-    private int pirceCount;
+    public int projectileCount;
+    public float spreadAngle;
+    public int playerPircecount;
+    
     private float homingStrength;
     private Vector2 startPosition;
     private bool isDestroying = false;
-    public bool isHoming;
+    [SerializeField] public bool isHoming;
     private Transform target;
     private Rigidbody2D rb;
-
+    private HashSet<EnemyBasics> hitEnemies = new HashSet<EnemyBasics>();
      void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -28,6 +32,9 @@ public class Projectile : MonoBehaviour
         this.range = stats.range;
         this.isHoming = stats.isHoming;
         this.homingStrength = stats.homingStrength;
+        this.spreadAngle = stats.spreadAngle;
+        this.projectileCount = stats.projectileCount;
+        this.playerPircecount = stats.playerPircecount;
         startPosition = transform.position;
         Destroy(gameObject, stats.range / stats.projectileSpeed);
         //GetComponent<Rigidbody2D>().velocity = direction.normalized * speed;
@@ -75,20 +82,24 @@ public class Projectile : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        EnemyBasics enemy = other.GetComponent<EnemyBasics>();
-        if (enemy != null)
-        {
-            enemy.TakeDamage(damage);
+        if (isDestroying) return;
 
-            this.pirceCount--;
-            
-        }
-        if (pirceCount <= 0)
+        if (other.TryGetComponent<EnemyBasics>(out EnemyBasics enemy))
         {
-            isDestroying = true;
-            Destroy(gameObject);
+            if (hitEnemies.Contains(enemy)) return;
+            hitEnemies.Add(enemy);
+            enemy.TakeDamage(damage);
+            playerPircecount--;
+            if (playerPircecount <= 0)
+            {
+                isDestroying = true;
+                Destroy(gameObject);
+            }
         }
     }
 
-   
+    internal void Initialize(int playerPircecount)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -22,7 +22,7 @@ MonoBehaviour:
   critmultiplier: 1.5
   projectileCount: 1
   spreadAngle: 0
-  pirceCount: 1
+  playerPircecount: 1
   isHoming: 0
   homingStrength: 5
   bounces: 0
