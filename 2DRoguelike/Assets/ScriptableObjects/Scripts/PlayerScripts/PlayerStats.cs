@@ -75,14 +75,11 @@ public class PlayerStats : MonoBehaviour
    private void RegenHealth()
     {
         regenTimer += Time.deltaTime;
-
         if (regenTimer >= regenInterval && currentHealth < maxHealth && regenAmount != 0)
         {
             currentHealth += regenAmount;
             currentHealth = Mathf.Round(currentHealth * 10f) / 10f;
-
             if (currentHealth > maxHealth) { currentHealth = maxHealth; }
-
             regenTimer = 0;
         }
     }

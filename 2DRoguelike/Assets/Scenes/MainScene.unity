@@ -696,8 +696,8 @@ MonoBehaviour:
   WaveAmount: 0
   WaveActive: 0
   spawnRate: 1
-  spawnRadius: 10
   BasicEnemy: {fileID: 8971840052728973215, guid: 2981c5793a464524395d53c94db9cbba, type: 3}
+  Boss: {fileID: 8971840052728973215, guid: b2777e9962abc284b859480122ff1cb4, type: 3}
   NEnemy: 0
   UEnemy: 0
   EnemyStats: {fileID: 5734325046311758238, guid: 2981c5793a464524395d53c94db9cbba, type: 3}
@@ -705,6 +705,7 @@ MonoBehaviour:
   - {fileID: -444678978, guid: 8526afe48a93884428763aa116f4d972, type: 3}
   - {fileID: 21300000, guid: 5758f3b0578cb0a4d8e4ef90b841d851, type: 3}
   SpawnTHingya: {x: 0, y: 0, z: 0}
+  BossSpawned: 0
   EnemyList: []
   player: {fileID: 1183110444}
   EnemySpawns:
@@ -3168,6 +3169,7 @@ MonoBehaviour:
   regenInterval: 0
   regenAmount: 0
   EnemyStats: {fileID: 5734325046311758238, guid: 2981c5793a464524395d53c94db9cbba, type: 3}
+  ProjStuff: {fileID: 0}
   regenTimer: 0
 --- !u!212 &1183110449
 SpriteRenderer:
@@ -3375,18 +3377,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82acb8b5123e6a641abad0ca058271c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileCount: 3
-  projectileSpread: 30
-  spreadAngle: 30
-  inventory: {fileID: 1183110453}
-  weaponSlots:
-  - {fileID: 534606658}
-  - {fileID: 1516150002}
-  - {fileID: 1415127454}
-  - {fileID: 1140354075}
-  - {fileID: 1712613978}
-  - {fileID: 1438348890}
-  bulletPrefab: {fileID: 5360510018977084830, guid: 72657a49539485043bc7fe7af565a4a5, type: 3}
 --- !u!1 &1185829575
 GameObject:
   m_ObjectHideFlags: 0
